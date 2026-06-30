@@ -1,0 +1,25 @@
+# Environment
+.env
+venv/
+.venv/
+
+# Data & vector store
+data/resumes/*
+data/chroma_db/*
+!data/resumes/.gitkeep
+!data/chroma_db/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

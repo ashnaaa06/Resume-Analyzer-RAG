@@ -33,10 +33,10 @@ class Settings(BaseSettings):
         description="Gemini model used for chat completions",
     )
     embedding_model: str = Field(
-        default="text-embedding-004",
-        alias="EMBEDDING_MODEL",
-        description="Gemini model used for text embeddings",
-    )
+    default="models/gemini-embedding-001",
+    alias="EMBEDDING_MODEL",
+    description="Gemini embedding model",
+)
 
     # --- Chunking ---
     chunk_size: int = Field(

@@ -64,7 +64,9 @@ if analyze_btn:
 
     try:
 
-        with st.spinner("Analyzing Resume..."):
+        with st.spinner(
+          " AI is analyzing your resume. Please wait..."
+        ):
 
             # Save uploaded resume
             resume_path = save_uploaded_file(
@@ -169,4 +171,18 @@ if analyze_btn:
             st.write(f"{i}. {question}")
 
     except Exception as e:
-        st.error(f"Analysis failed:\n\n{e}")
+
+        error = str(e)
+
+        if "RESOURCE_EXHAUSTED" in error or "429" in error:
+            st.error(
+            "⚠️ Gemini API quota exceeded. Please try again later or update your API key."
+        )
+
+        elif "INVALID_ARGUMENT" in error:
+            st.error(
+            "⚠️ Invalid request sent to Gemini."
+        )
+
+        else:
+            st.error(f"Analysis failed:\n\n{error}")

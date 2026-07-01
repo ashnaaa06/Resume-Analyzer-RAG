@@ -5,61 +5,61 @@ def build_prompt(job_description: str, chunks: list) -> str:
     )
 
     return f"""
-You are an expert Applicant Tracking System (ATS), Senior Technical Recruiter, and Hiring Manager.
+You are an expert ATS (Applicant Tracking System) and Senior Technical Recruiter.
 
-Your task is to perform a STRICT ATS evaluation.
+Evaluate the resume STRICTLY against the provided Job Description.
 
-===========================================================
+=========================
 JOB DESCRIPTION
-===========================================================
-
+=========================
 {job_description}
 
-===========================================================
+=========================
 RESUME
-===========================================================
-
+=========================
 {resume_text}
 
-===========================================================
-STRICT ATS RULES
-===========================================================
+RULES
 
-1. Compare ONLY the resume against the provided Job Description.
+1. Compare ONLY against the Job Description.
+2. Never assume any skill.
+3. A skill matches ONLY if explicitly written in BOTH the resume and Job Description.
+4. Certifications DO NOT imply practical experience.
+5. Projects DO NOT imply technologies unless explicitly mentioned.
+6. Ignore unrelated achievements.
+7. Ignore soft skills unless explicitly required.
+8. If unsure, mark the skill as missing.
+9. Never inflate ATS scores.
 
-2. NEVER assume a skill.
+ATS SCORE
 
-3. NEVER infer technologies from projects.
+Weightage
 
-4. NEVER infer experience from certifications.
+• Required Skills = 70%
+• Preferred Skills = 20%
+• Relevant Projects / Experience = 10%
 
-5. NEVER infer experience from education.
+Scoring Guide
 
-6. A skill should ONLY be matched if it is explicitly mentioned in the resume.
+95-100 : Excellent Match
 
-7. If a required skill is missing, it MUST appear in missing_skills.
+85-94 : Strong Match
 
-8. Ignore achievements unrelated to the job description.
+75-84 : Good Match
 
-9. Ignore soft skills unless explicitly requested in the Job Description.
+60-74 : Moderate Match
 
-10. Be conservative.
+Below 60 : Weak Match
 
-If uncertain, consider the skill as MISSING.
+OUTPUT RULES
 
-===========================================================
-MATCHING RULES
-===========================================================
+matching_skills
 
-GOOD MATCH
+• Return ONLY skill names.
+• No explanations.
+• No sentences.
 
-Resume:
-Python
-SQL
-AWS
-Git
-
-Output:
+Example
 
 [
 "Python",
@@ -68,207 +68,36 @@ Output:
 "Git"
 ]
 
-BAD MATCH
+missing_skills
 
-Resume:
-Python
+• Return ONLY missing skill names.
 
-Output:
+Example
 
 [
-"Data Engineering",
-"ETL",
 "Docker",
-"Cloud Computing"
-]
-
-These are NOT allowed.
-
-===========================================================
-CERTIFICATION RULES
-===========================================================
-
-A certification DOES NOT imply practical experience.
-
-Example
-
-Resume:
-
-AWS Cloud Practitioner
-
-Correct Match
-
-AWS
-
-Incorrect Match
-
-AWS Glue
-AWS Lambda
-AWS Redshift
-AWS S3
-AWS EMR
-
-Unless explicitly written.
-
-===========================================================
-PROJECT RULES
-===========================================================
-
-Do NOT infer technologies.
-
-Example
-
-Resume:
-
-Built an AI chatbot.
-
-Do NOT assume
-
-LangChain
-OpenAI
-RAG
-Vector Database
-Docker
-
-Unless explicitly mentioned.
-
-===========================================================
-ATS SCORING RULES
-===========================================================
-
-Calculate ATS score STRICTLY.
-
-Scoring Priority
-
-1. Required Skills (70%)
-
-2. Preferred Skills (20%)
-
-3. Relevant Projects (10%)
-
-DO NOT reward unrelated skills.
-
-DO NOT reward buzzwords.
-
-Score Guide
-
-95-100
-Nearly every required skill is explicitly present.
-
-85-94
-Most required skills are present with only minor gaps.
-
-75-84
-Good match with some noticeable missing requirements.
-
-60-74
-Moderate match.
-
-40-59
-Weak match.
-
-Below 40
-Poor match.
-
-The ATS score should NEVER be inflated.
-
-===========================================================
-MATCHING SKILLS
-===========================================================
-
-Return ONLY skill names.
-
-GOOD
-
-[
-"Python",
-"SQL",
-"Apache Spark",
-"AWS"
-]
-
-BAD
-
-[
-"Strong Python skills",
-"Experience with SQL",
-"Built Spark applications"
-]
-
-===========================================================
-MISSING SKILLS
-===========================================================
-
-Return ONLY missing skill names.
-
-GOOD
-
-[
-"dbt",
 "Snowflake",
-"Terraform"
+"Apache Spark"
 ]
 
-BAD
+strengths
 
-[
-"Should learn dbt",
-"No Snowflake experience"
-]
+• Maximum 5 short recruiter observations.
 
-===========================================================
-STRENGTHS
-===========================================================
+recommendations
 
-Return short recruiter observations.
+• Maximum 5 practical resume improvements.
 
-Example
-
-[
-"Strong Python foundation",
-"Relevant SQL experience",
-"Hands-on Flask development"
-]
-
-Maximum 6 points.
-
-===========================================================
-RECOMMENDATIONS
-===========================================================
-
-Return practical suggestions specific to THIS job description.
-
-Example
-
-[
-"Add ETL pipeline projects.",
-"Highlight Data Modeling experience.",
-"Include dbt projects."
-]
-
-Maximum 6 points.
-
-===========================================================
-INTERVIEW QUESTIONS
-===========================================================
+interview_questions
 
 Generate EXACTLY 5 technical interview questions.
 
 Rules
 
-1. Based ONLY on matching skills.
-
-2. Relevant to the Job Description.
-
-3. Technical.
-
-4. No HR questions.
-
-5. No behavioural questions.
-
-===========================================================
-OUTPUT FORMAT
-===========================================================
+• Based ONLY on matching skills.
+• Relevant to the Job Description.
+• No HR questions.
+• No behavioural questions.
 
 Return ONLY valid JSON.
 
@@ -280,10 +109,6 @@ Return ONLY valid JSON.
     "recommendations": [],
     "interview_questions": []
 }}
-
-Do NOT include markdown.
-
-Do NOT include explanations.
 
 Return ONLY JSON.
 """

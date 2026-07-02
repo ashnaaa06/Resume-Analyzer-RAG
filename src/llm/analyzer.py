@@ -23,6 +23,31 @@ def analyze_resume(
 
     response = generate_content(prompt)
 
+    print("\n========== GEMINI RAW RESPONSE ==========")
+    print(repr(response))
+    print("=========================================\n")
+
+    if not response:
+        raise Exception("Gemini returned an empty response.")
+
+    response = response.strip()
+
+# Remove Markdown code fences if present
+    if response.startswith("```json"):
+        response = response[7:]
+
+    if response.startswith("```"):
+        response = response[3:]
+
+    if response.endswith("```"):
+        response = response[:-3]
+
+    response = response.strip()
+
+    print("\n========== CLEANED RESPONSE ==========")
+    print(response)
+    print("======================================\n")
+
     data = json.loads(response)
 
     return AnalysisResult(**data)

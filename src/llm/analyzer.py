@@ -32,7 +32,7 @@ def analyze_resume(
 
     response = response.strip()
 
-# Remove Markdown code fences if present
+
     if response.startswith("```json"):
         response = response[7:]
 

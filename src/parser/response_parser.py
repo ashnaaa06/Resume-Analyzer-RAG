@@ -1,8 +1,7 @@
 from pydantic import BaseModel, Field
 
-
 class AnalysisResult(BaseModel):
-    match_score: int
+    match_score: float
     matching_skills: list[str]
     missing_skills: list[str]
     strengths: list[str]

@@ -6,6 +6,9 @@ from src.llm.gemini_client import generate_content
 from src.parser import AnalysisResult
 
 
+print(AnalysisResult.model_fields["match_score"])
+
+
 def analyze_resume(
     vectorstore,
     job_description: str
@@ -49,5 +52,8 @@ def analyze_resume(
     print("======================================\n")
 
     data = json.loads(response)
+    data["match_score"] = round(data["match_score"], 1)
+    print(type(data["match_score"]))
+    print(data["match_score"])
 
     return AnalysisResult(**data)

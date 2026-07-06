@@ -1,0 +1,468 @@
+.hero{
+    text-align:center;
+    margin-top:30px;
+    margin-bottom:15px;
+}
+   
+.hero-icon{
+    width:80px;
+    height:80px;
+    margin:auto;
+    border-radius:20px;
+    background:#F8FAFC;
+    border:1px solid #E2E8F0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+}
+
+.hero-title{
+    font-size:52px;
+    font-weight:700;
+    margin-top:25px;
+    color:#111827;
+}
+
+.hero-subtitle{
+    font-size:20px;
+    color:#6B7280;
+    margin-top:10px;
+}
+
+.feature-row{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:20px;
+    margin-bottom:40px;
+}
+
+.feature-pill{
+
+    background:#F8FAFC;
+
+    color:#334155;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:999px;
+
+    padding:12px 22px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    cursor:default;
+}
+
+.feature-pill:hover{
+
+    background:#334155;
+
+    color:white;
+
+    border-color:#334155;
+
+    transform:translateY(-2px);
+}
+/* ===========================
+   Input Cards
+=========================== */
+
+.input-card{
+    background:#FFFFFF;
+    border:1px solid #E5E7EB;
+    border-radius:18px;
+    padding:24px;
+    box-shadow:0 12px 35px rgba(15,23,42,.06);;
+    height:100%;
+}
+
+.card-title{
+    font-size:26px;
+    font-weight:700;
+    color:#111827;
+    margin-bottom:6px;
+}
+
+.card-subtitle{
+    font-size:15px;
+    color:#6B7280;
+    margin-bottom:18px;
+}
+
+/* Upload Area */
+
+.upload-box{
+
+    border:2px dashed #8f8fd5;
+    border-radius:16px;
+
+    padding:40px 20px;
+
+    text-align:center;
+
+    background:white;
+
+    transition:.3s;
+}
+
+.upload-box:hover{
+    border-color:#334155;
+    background:#F8FAFC;
+}
+
+.upload-icon{
+
+    font-size:48px;
+
+    margin-bottom:10px;
+}
+
+.upload-title{
+
+    font-size:20px;
+
+    font-weight:600;
+
+    margin-bottom:6px;
+}
+
+.upload-text{
+
+    color:#6B7280;
+}
+/* Upload Card */
+
+[data-testid="stFileUploader"]{
+    background:#ffffff;
+    border:1px solid #E5E7EB;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+/* Text Area Card */
+
+[data-testid="stTextArea"]{
+    background:#ffffff;
+    border:1px solid #E5E7EB;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+/* Analyze Button */
+
+/* Analyze Button */
+
+div.stButton > button{
+
+    width:100%;
+
+    background:#334155;
+
+    color:white;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:15px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+div.stButton > button:hover{
+
+    background:#1E293B;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 28px rgba(114, 132, 171, 0.2);
+}
+
+.stButton > button:focus{
+    border:none;
+}
+
+/* =========================================
+   RESULTS DASHBOARD
+========================================= */
+
+.result-card{
+    background:white;
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 20px 40px rgba(15,23,42,.08);;
+    border:1px solid #E5E7EB;
+    margin-top:30px;
+    margin-bottom:25px;
+}
+
+.result-title{
+    font-size:32px;
+    font-weight:700;
+    color:#1E293B;;
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.result-score{
+    font-size:72px;
+    letter-spacing:-2px;
+    font-weight:800;
+    color:#334155;;
+    text-align:center;
+    margin-top:15px;
+}
+
+.result-status{
+    text-align:center;
+    font-size:18px;
+    font-weight:600;
+    margin-top:10px;
+}
+
+.metric-card{
+    background:#FFFFFF;
+    border:1px solid #E5E7EB;
+    border-radius:18px;
+    padding:28px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+    margin-top:20px;
+}
+
+.metric-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 20px 40px rgba(15,23,42,.12);
+}
+.metric-value{
+    font-size:42px;
+    font-weight:700;
+    color:#334155;;
+}
+
+.metric-title{
+    margin-top:10px;
+    font-size:17px;
+    color:#6B7280;
+}
+/* ==========================================
+   Skill Chips
+========================================== */
+
+.skill-chip-container{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:15px;
+
+    margin-bottom:30px;
+}
+
+.skill-chip-success{
+
+    background:#ECFDF5;
+
+    color:#166534;
+
+    border:1px solid #BBF7D0;
+
+    border-radius:999px;
+
+    padding:10px 18px;
+
+    font-weight:600;
+
+    font-size:15px;
+
+    transition:.3s;
+}
+
+.skill-chip-success:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 6px 15px rgba(34,197,94,.15);
+}
+
+.skill-chip-danger{
+
+    background:#FEF2F2;
+
+    color:#B91C1C;
+
+    border:1px solid #FECACA;
+
+    border-radius:999px;
+
+    padding:10px 18px;
+
+    font-weight:600;
+
+    font-size:15px;
+
+    transition:.3s;
+}
+
+.skill-chip-danger:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 6px 15px rgba(239,68,68,.15);
+}
+/* ================================
+   Section Titles
+================================ */
+
+.section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:#1E293B;
+
+    margin-top:35px;
+
+    margin-bottom:20px;
+
+    padding-bottom:12px;
+
+    border-bottom:1px solid #E2E8F0;
+}
+
+.section-icon{
+
+    font-size:30px;
+}
+/* ======================================
+   Executive Summary
+====================================== */
+
+.summary-card{
+
+    background:#FFFFFF;
+
+    border:1px solid #E2E8F0;
+
+    border-left:6px solid #334155;
+
+    border-radius:18px;
+
+    padding:28px;
+
+    margin:30px 0;
+
+    box-shadow:0 10px 30px rgba(15,23,42,.06);
+}
+
+.summary-title{
+
+    font-size:26px;
+
+    font-weight:700;
+
+    color:#1E293B;
+
+    margin-bottom:18px;
+}
+
+.summary-text{
+
+    font-size:16px;
+
+    line-height:1.8;
+
+    color:#475569;
+}
+/* ==========================================
+   Info Cards
+========================================== */
+
+.info-card{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:18px;
+
+    background:#FFFFFF;
+
+    border:1px solid #E2E8F0;
+
+    border-radius:20px;
+
+    padding:24px;
+
+    margin-bottom:18px;
+
+    box-shadow:0 12px 32px rgba(15,23,42,.06);
+
+    transition:all .25s ease;
+}
+
+.info-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 18px 40px rgba(15,23,42,.10);
+}
+
+.info-icon{
+
+    font-size:28px;
+
+    flex-shrink:0;
+}
+
+.info-text{
+
+    color:#475569;
+
+    line-height:1.7;
+
+    font-size:16px;
+}
+
+/* Accent Colors */
+
+.success{
+
+    border-left:6px solid #22C55E;
+}
+
+.warning{
+
+    border-left:6px solid #F59E0B;
+}
+
+.default{
+
+    border-left:6px solid #334155;
+}
